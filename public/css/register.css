@@ -1,0 +1,146 @@
+:root {
+    --main-bg-color: #f9f9f9;
+    --form-bg-color: #fff;
+    --text-color: #333;
+    --input-border-color: #ccc;
+    --focus-border-color: #008080;
+    --button-bg-color: #008080;
+    --hover-button-bg-color: #20b2aa;
+    --regresar-button-bg-color: #20b2aa;
+    --regresar-hover-button-bg-color: #8453BB;
+}
+
+/* Establece la fuente principal para todo el cuerpo del documento */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.background-image {
+    background-image: url('/img/IMAGEN.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (orientation: landscape) {
+    .background-image {
+        background-position: center;
+        background-size: 100% 100%;
+    }
+}
+
+
+/* Estilos para los encabezados de nivel 1 */
+h1 {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 0;
+}
+
+.formularios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form, output {
+    width: 300px;
+    background-color: var(--form-bg-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.output{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 10px rgba(0, 128, 128, 0.1);
+    animation: colorChange 1s infinite;
+}
+
+button[type="submit"],
+button[type="button"] {
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease;
+    animation: colorChange 2s infinite;
+}
+
+button[type="submit"] {
+    background-color: var(--button-bg-color);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--hover-button-bg-color);
+}
+
+button[type="button"] {
+    background-color: var(--regresar-button-bg-color);
+}
+
+button[type="button"]:hover {
+    background-color: var(--regresar-hover-button-bg-color);
+}
+
+.register-button {
+    display: flex;
+    font-weight: 400;
+    color: var(--form-bg-color);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #007bff;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    justify-content: center;
+    display: flex;
+}
+
+@keyframes colorChange {
+    0% { background-color: var(--button-bg-color); }
+    50% { background-color: var(--hover-button-bg-color); }
+    100% { background-color: var(--button-bg-color); }
+}

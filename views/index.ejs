@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML -->
+<html lang="en"> <!-- Inicio del elemento HTML con atributo de idioma en inglés -->
+<head>
+    <meta charset="UTF-8"> <!-- Especificación de la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración de la vista en dispositivos móviles -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Enlace al archivo CSS externo -->
+    <title>PQRS System</title> <!-- Título de la página -->
+</head>
+<body>
+    <div class="background-image">
+            
+        <div class="color-text">
+            <h1>Bienvenido al Sistema PQRS</h1> <!-- Título principal de la página -->
+        </div>
+        
+        <% if (nombre) { %>
+
+            <%if (admin) { %>
+
+                <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenido!</h5>
+                            </div>
+                            <div class="modal-body">
+                                <h2>¡Hola, <%= nombre %>!</h2>
+                                <p>Estamos muy contentos de verte de nuevo. Esperamos que disfrutes de tu tiempo aquí. Si necesitas ayuda, no dudes en preguntar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section id="ButtonSection" class="button-container bienvenida">
+                    <a href="/submit">Enviar una PQRSSI</a> <!-- Enlace para enviar una PQRSSI -->
+                    <a href="/admin">Administrar PQRSSI</a> <!-- Enlace para ver las PQRSSI -->
+                    <a href="/logout">Cerrar Sesión</a> <!-- Enlace para cerrar sesión -->
+                </section>
+            <% } else { %>
+                <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenido!</h5>
+                            </div>
+                            <div class="modal-body">
+                                <h2>¡Hola, <%= nombre %>!</h2>
+                                <p>Estamos muy contentos de verte de nuevo. Esperamos que disfrutes de tu tiempo aquí. Si necesitas ayuda, no dudes en preguntar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <script>
+                $(document).ready(function() {
+                    $('#welcomeModal').modal('show');
+
+                    // Cerrar el modal después de 5 segundos
+                    setTimeout(function() {
+                        $('#welcomeModal').modal('hide');
+                    }, 5000);
+                });
+                </script>
+                <a href="/submit">Enviar una PQRSSI</a> <!-- Enlace para enviar una PQRSSI -->
+                <a href="/view">Ver PQRSSI</a> <!-- Enlace para ver las PQRSSI -->
+                <a href="/logout">Cerrar Sesión</a> <!-- Enlace para cerrar sesión -->
+            <% } %>
+        <% } else { %> <!-- Bloque de código para usuarios no autenticados -->
+            <a href="/login">Iniciar Sesión</a> <!-- Enlace para iniciar sesión -->
+            <a href="/register">Registrarse</a> <!-- Enlace para registrarse -->
+            
+        <% } %> <!-- Fin de la condición -->
+    </div>
+</body>
+</html>
