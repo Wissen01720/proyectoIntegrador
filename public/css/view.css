@@ -67,11 +67,22 @@ a {
 }
 
 a:hover {
-    color: #005959;
+    color: #f2f2f2;
     text-decoration: underline;
 }
 
-button, a {
+.volver-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007b7b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 20px;
     transition: all 0.3s ease;
 }
 

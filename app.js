@@ -70,6 +70,7 @@ app.get('/login', (req, res) => {
     res.render('login'); // Renderiza la vista de login
 });
 
+
 app.post('/login', (req, res) => {
     const { email, contraseña } = req.body; // Obtiene los datos del formulario
     db.query('SELECT * FROM usuarios WHERE email = ?', [email], async (err, results) => {
@@ -82,8 +83,8 @@ app.post('/login', (req, res) => {
                 req.session.userId = user.id; // Guarda el ID del usuario en la sesión
                 req.session.isAdmin = user.is_admin; // Guarda si el usuario es administrador en la sesión
                 res.redirect('/'); // Redirige a la página principal
-            } else {
-                res.send('Contraseña incorrecta!'); // Si la contraseña es incorrecta, envía un mensaje
+            } else{
+                res.send('Contraseña incorrecta!'); // Si la contraseña no coincide, envía un mensaje
             }
         } else {
             res.send('Usuario no encontrado!'); // Si el usuario no se encuentra, envía un mensaje
